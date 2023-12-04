@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "4e9d87cf0d7e77a3ed630248357b904355dfaa67f69983537cc7bc5fef041904"
+build_start_time: [1701670111, 195738000]
+build_end_time: [1701670115, 136877000]
+inputs:
+  "/Users/seoyoungbae/git/spiratus-org/spiratus_homepage_v2/macos/Flutter/GeneratedPluginRegistrant.swift": [1701670097, 180550879]
+  "/Users/seoyoungbae/git/spiratus-org/spiratus_homepage_v2/macos/Runner/AppDelegate.swift": [1701668712, 892791633]
+  "/Users/seoyoungbae/git/spiratus-org/spiratus_homepage_v2/macos/Runner/MainFlutterWindow.swift": [1701668712, 895741851]
