@@ -105,33 +105,48 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         child: ListView(
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.only(top: 200.0), // 여백 추가
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                '메뉴',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
             ListTile(
-              title: Text('메뉴 항목 1'),
+              title: Text('ABOUT'),
               onTap: () {
                 // TODO: 메뉴 항목 1을 선택했을 때 수행할 동작 추가
                 Navigator.pop(context); // Drawer를 닫음
               },
             ),
-            ListTile(
-              title: Text('메뉴 항목 2'),
-              onTap: () {
-                // TODO: 메뉴 항목 2를 선택했을 때 수행할 동작 추가
-                Navigator.pop(context); // Drawer를 닫음
-              },
+           // ExpansionTile로 구현된 하위 메뉴
+            ExpansionTile(
+              title: Text('PROGRAM'), // '메뉴 항목 2'를 'PROGRAM'으로 변경
+              children: [
+                ListTile(
+                  title: Text('MOVEMENT'),
+                  onTap: () {
+                    // TODO: MOVEMENT 선택했을 때 수행할 동작 추가
+                    Navigator.pop(context); // Drawer를 닫음
+                  },
+                ),
+                ListTile(
+                  title: Text('SOUND'),
+                  onTap: () {
+                    // TODO: SOUND 선택했을 때 수행할 동작 추가
+                    Navigator.pop(context); // Drawer를 닫음
+                  },
+                ),
+                ListTile(
+                  title: Text('TEA'),
+                  onTap: () {
+                    // TODO: TEA 선택했을 때 수행할 동작 추가
+                    Navigator.pop(context); // Drawer를 닫음
+                  },
+                ),
+                ListTile(
+                  title: Text('RETREAT'),
+                  onTap: () {
+                    // TODO: RETREAT 선택했을 때 수행할 동작 추가
+                    Navigator.pop(context); // Drawer를 닫음
+                  },
+                ),
+              ],
             ),
             // 추가적인 메뉴 항목들을 필요에 따라 추가
           ],
