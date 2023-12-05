@@ -98,6 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       drawer: Drawer(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(0.0),
+            bottomRight: Radius.circular(0.0),
+          ),
+        ),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
