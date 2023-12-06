@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'about.dart';
+import 'program_retreat.dart';
+import 'program_movement.dart';
+import 'program_sound.dart';
+import 'program_tea.dart';
+import 'program_retreat.dart';
+import 'contact.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.menu),
               onPressed: () {
                 // Drawer를 열기 위해 ScaffoldState의 openDrawer 메서드 호출
-                _scaffoldKey.currentState!.openDrawer();
+                _scaffoldKey.currentState!.openEndDrawer();
               },
             ),
           ],
@@ -97,11 +104,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      drawer: Drawer(
+      endDrawer: Drawer(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
+            topLeft: Radius.circular(0.0), // 왼쪽 상단 모서리
+            bottomLeft: Radius.circular(0.0), // 왼쪽 하단 모서리
           ),
         ),
         child: ListView(
@@ -110,43 +119,76 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: Text('ABOUT'),
               onTap: () {
-                // TODO: 메뉴 항목 1을 선택했을 때 수행할 동작 추가
                 Navigator.pop(context); // Drawer를 닫음
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()),
+                );
               },
             ),
            // ExpansionTile로 구현된 하위 메뉴
             ExpansionTile(
               title: Text('PROGRAM'), // '메뉴 항목 2'를 'PROGRAM'으로 변경
               children: [
-                ListTile(
-                  title: Text('MOVEMENT'),
-                  onTap: () {
-                    // TODO: MOVEMENT 선택했을 때 수행할 동작 추가
-                    Navigator.pop(context); // Drawer를 닫음
-                  },
+                // 들여쓰기를 위해 Column 추가
+                Padding(
+                  padding: const EdgeInsets.only(left:16.0),
+                  child: Column(
+                  children: [
+                    ListTile(
+                      title: Text('MOVEMENT'),
+                      onTap: () {
+                        Navigator.pop(context); // Drawer를 닫음
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MovementPage()),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      title: Text('SOUND'),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SoundPage()),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      title: Text('TEA'),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TeaPage()),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      title: Text('RETREAT'),
+                      onTap: () {
+                        Navigator.pop(context); // Drawer를 닫음
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RetreatPage()),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-                ListTile(
-                  title: Text('SOUND'),
-                  onTap: () {
-                    // TODO: SOUND 선택했을 때 수행할 동작 추가
-                    Navigator.pop(context); // Drawer를 닫음
-                  },
-                ),
-                ListTile(
-                  title: Text('TEA'),
-                  onTap: () {
-                    // TODO: TEA 선택했을 때 수행할 동작 추가
-                    Navigator.pop(context); // Drawer를 닫음
-                  },
-                ),
-                ListTile(
-                  title: Text('RETREAT'),
-                  onTap: () {
-                    // TODO: RETREAT 선택했을 때 수행할 동작 추가
-                    Navigator.pop(context); // Drawer를 닫음
-                  },
-                ),
+                )
               ],
+            ),
+            ListTile(
+              title: Text('CONTACT'),
+              onTap: () {
+                Navigator.pop(context); // Drawer를 닫음
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContactPage()),
+                );
+              },
             ),
             // 추가적인 메뉴 항목들을 필요에 따라 추가
           ],
