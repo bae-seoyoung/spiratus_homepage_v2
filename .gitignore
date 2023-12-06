@@ -1,2 +1,4 @@
+.dart_tool
 .dart_tool/*
+.dart_tool/*/*
 .DS_Store
