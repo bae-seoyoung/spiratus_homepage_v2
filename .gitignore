@@ -2,4 +2,6 @@
 .dart_tool/*
 .dart_tool/*/*
 .DS_Store
+.assets/.DS_Store
+.flutter-plugins-dependencies
 build
