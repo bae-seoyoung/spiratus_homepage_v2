@@ -111,7 +111,7 @@ class AboutPage extends StatelessWidget {
                       fontSize: 20.0,
                       fontWeight: FontWeight.w100,
                       color: Colors.black,
-                      height: 2,
+                      height: 3,
                       ),
                       textAlign: TextAlign.center,
                     ),
