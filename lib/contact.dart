@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   @override
@@ -84,7 +85,7 @@ class ContactPage extends StatelessWidget {
               Center( // 버튼을 화면 중앙에 정렬
                 child: ElevatedButton(
                   onPressed: () {
-                    // 메일 보내기 또는 제출 기능을 구현할 수 있습니다.
+                    _sendEmail(context);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0), // 버튼 크기 조절
@@ -104,4 +105,27 @@ class ContactPage extends StatelessWidget {
       ),
     );
   }
+  // 메일 보내기 함수
+  _sendEmail(BuildContext context) async {
+    final Uri _emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: 'hello@spiratus.org', // 받는 이메일 주소를 입력하세요.
+      queryParameters: {
+        'subject': 'Contact Us', // 이메일 제목을 입력하세요.
+        'body': 'Name: \nEmail: \nMessage: ', // 이메일 내용을 입력하세요.
+      },
+    );
+    
+    try {
+      await launch(_emailLaunchUri.toString());
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to open email app.'),
+        ),
+      );
+    }
+  }
+
 }
+
